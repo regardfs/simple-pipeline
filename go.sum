@@ -1,2 +1,4 @@
 github.com/regardfs/simple-pipeline v0.0.0-20211115155923-68a0f7d35bc4 h1:KGf8OG/Uuua3jjPGTtbJ0OHNFWpu+PPuVV+jOJWCMgY=
 github.com/regardfs/simple-pipeline v0.0.0-20211115155923-68a0f7d35bc4/go.mod h1:0/L9M7rUDQrGowLsW+KplWS88nGNHqFrL9dg2fruS3s=
+golang.org/x/sync v0.0.0-20210220032951-036812b2e83c h1:5KslGYwFpkhGh+Q16bwMP3cOontH8FOep7tGV86Y7SQ=
+golang.org/x/sync v0.0.0-20210220032951-036812b2e83c/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
