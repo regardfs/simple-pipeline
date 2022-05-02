@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	. "github.com/regardfs/go-utils/pipeline/7/simple-pipeline"
+	. "github.com/regardfs/simple-pipeline"
 	"log"
 	"time"
 )
