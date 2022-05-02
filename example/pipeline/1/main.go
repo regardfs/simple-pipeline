@@ -6,10 +6,14 @@ import (
 	"fmt"
 	. "github.com/regardfs/simple-pipeline"
 	"log"
+	"runtime"
 	"time"
 )
 
 func main() {
+	defaultSize := runtime.GOMAXPROCS(0)
+	pl := NewPipelineLimiter(defaultSize)
+
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second* 2)
 	defer cancel()
 	var m1 = Multiplier1{Factor: 10, Name: "Multiplier1"}
@@ -47,7 +51,9 @@ func main() {
 
 	pipeline1 := NewPipeline(time.Second * 10)
 	pipeline1.Register(stage1).Register(stage2)
-	pipeline1.Run(ctx, 1)
+	baseCtx, cancel := context.WithCancel(ctx)
+	err := pl.Go(baseCtx, pipeline1.Run(baseCtx, 1))
+	fmt.Println(err)
 	fmt.Println(pipeline1)
 }
 

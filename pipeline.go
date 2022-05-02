@@ -36,10 +36,12 @@ func (pipeline *Pipeline) Register(stage *Stage) *Pipeline {
 	return pipeline
 }
 
-func (pipeline *Pipeline) Run(ctx context.Context, i interface{}) {
+func (pipeline *Pipeline) Run(ctx context.Context, i interface{}) func(){
 	for index := 1; index <= len(pipeline.stages); index++ {
 		pipeline.runSync(pipeline.stages[index], ctx, i)
 	}
+	//Todo: collect all stage result
+	return nil
 }
 
 func (pipeline *Pipeline) runSync(stage *Stage, ctx context.Context, i interface{}) {
